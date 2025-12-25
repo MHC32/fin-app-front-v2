@@ -4,17 +4,22 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { TamaguiProvider } from '@tamagui/core'
-import config from '../tamagui.config.ts'
+import config from '../src/config/tamagui.config.ts'
+import { store } from './app/store'
 import './index.css'
 import App from './App.jsx'
+import '@tamagui/core/reset.css'
+import SessionManager from './components/SessionManager'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <Provider store={store}>
       <TamaguiProvider config={config} defaultTheme="dark">
-        <App />
+      <SessionManager>
+          <App />
+      </SessionManager>
       </TamaguiProvider>
-    </BrowserRouter>
+    </Provider>
   </StrictMode>,
 )
