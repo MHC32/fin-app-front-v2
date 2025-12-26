@@ -3543,6 +3543,11 @@ react-hook-form@^7.69.0:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.69.0.tgz#40f5e5ba2a436c2eee12b75ab30da5bb743744e7"
   integrity sha512-yt6ZGME9f4F6WHwevrvpAjh42HMvocuSnSIHUGycBqXIJdhqGSPQzTpGF+1NLREk/58IdPxEMfPcFCjlMhclGw==
 
+react-is@^19.2.3:
+  version "19.2.3"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.2.3.tgz#eec2feb69c7fb31f77d0b5c08c10ae1c88886b29"
+  integrity sha512-qJNJfu81ByyabuG7hPFEbXqNcWSU3+eVus+KJs+0ncpGfMyYdvSmxiJxbWR65lYi1I+/0HBcliO029gc4F+PnA==
+
 react-native-svg@^15.15.1:
   version "15.15.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-15.15.1.tgz#0b08716f5c389ef8550a73492c985c7b23849d65"

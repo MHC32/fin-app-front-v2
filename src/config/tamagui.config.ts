@@ -321,22 +321,29 @@ const lightTheme = {
 }
 
 // ===================================================================
-// MEDIA QUERIES
+// MEDIA QUERIES - Basés sur wireframe HTML
 // ===================================================================
 
 const media = createMedia({
+  // Match wireframe breakpoints
   xs: { maxWidth: 660 },
-  sm: { maxWidth: 800 },
+  sm: { maxWidth: 768 },     // Mobile: < 768px
   md: { maxWidth: 1020 },
-  lg: { maxWidth: 1280 },
+  lg: { maxWidth: 1200 },    // Tablet: < 1200px
   xl: { maxWidth: 1420 },
   xxl: { maxWidth: 1600 },
+  
+  // Greater than (desktop)
   gtXs: { minWidth: 660 + 1 },
-  gtSm: { minWidth: 800 + 1 },
+  gtSm: { minWidth: 768 + 1 },   // Desktop: >= 769px
   gtMd: { minWidth: 1020 + 1 },
-  gtLg: { minWidth: 1280 + 1 },
+  gtLg: { minWidth: 1200 + 1 },  // Desktop: >= 1201px
+  
+  // Height
   short: { maxHeight: 820 },
   tall: { minHeight: 820 },
+  
+  // Pointer
   hoverNone: { hover: 'none' },
   pointerCoarse: { pointer: 'coarse' },
 })

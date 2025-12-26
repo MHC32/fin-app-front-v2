@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 // Layouts
 import AuthLayout from '../layouts/AuthLayout'
+import MainLayout from '../layouts/MainLayout'
 
 // Auth Pages
 import LoginPage from '../pages/auth/LoginPage'
@@ -11,7 +12,7 @@ import RegisterPage from '../pages/auth/RegisterPage'
 // Protected Components
 import ProtectedRoute from '../components/ProtectedRoute'
 
-// Dashboard (placeholder pour maintenant)
+// Dashboard
 import DashboardPage from '../pages/dashboard/DashboardPage'
 
 /**
@@ -19,11 +20,8 @@ import DashboardPage from '../pages/dashboard/DashboardPage'
  * 
  * Structure:
  * - / → Redirect to /dashboard ou /login selon auth
- * - /login → LoginPage (public)
- * - /register → RegisterPage (public)
- * - /dashboard → DashboardPage (protected)
- * - /forgot-password → ForgotPasswordPage (à venir)
- * - /reset-password → ResetPasswordPage (à venir)
+ * - /login, /register → AuthLayout (public)
+ * - /dashboard, /accounts, etc. → MainLayout (protected)
  */
 
 export const router = createBrowserRouter([
@@ -50,71 +48,83 @@ export const router = createBrowserRouter([
         path: 'register',
         element: <RegisterPage />,
       },
-      // TODO: Ajouter forgot-password et reset-password
-      // {
-      //   path: 'forgot-password',
-      //   element: <ForgotPasswordPage />,
-      // },
-      // {
-      //   path: 'reset-password',
-      //   element: <ResetPasswordPage />,
-      // },
     ],
   },
   
   // ===================================================================
-  // PROTECTED ROUTES (AUTHENTICATION REQUISE)
+  // PROTECTED ROUTES (AVEC MAIN LAYOUT 3 COLONNES)
   // ===================================================================
   {
-    path: '/dashboard',
+    path: '/',
     element: (
       <ProtectedRoute>
-        <DashboardPage />
+        <MainLayout />
       </ProtectedRoute>
     ),
+    children: [
+      {
+        path: 'dashboard',
+        element: <DashboardPage />,
+      },
+      // TODO: Ajouter autres pages
+      {
+        path: 'accounts',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Comptes (à venir)</h1>
+          </div>
+        ),
+      },
+      {
+        path: 'transactions',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Transactions (à venir)</h1>
+          </div>
+        ),
+      },
+      {
+        path: 'budgets',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Budgets (à venir)</h1>
+          </div>
+        ),
+      },
+      {
+        path: 'sols',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Sols (à venir)</h1>
+          </div>
+        ),
+      },
+      {
+        path: 'investments',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Investissements (à venir)</h1>
+          </div>
+        ),
+      },
+      {
+        path: 'debts',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Dettes (à venir)</h1>
+          </div>
+        ),
+      },
+      {
+        path: 'profile',
+        element: (
+          <div style={{ padding: '40px', color: 'white' }}>
+            <h1>Profil (à venir)</h1>
+          </div>
+        ),
+      },
+    ],
   },
-  
-  // TODO: Ajouter autres routes protégées
-  // {
-  //   path: '/accounts',
-  //   element: (
-  //     <ProtectedRoute>
-  //       <AccountsPage />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: '/transactions',
-  //   element: (
-  //     <ProtectedRoute>
-  //       <TransactionsPage />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: '/budgets',
-  //   element: (
-  //     <ProtectedRoute>
-  //       <BudgetsPage />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: '/sols',
-  //   element: (
-  //     <ProtectedRoute>
-  //       <SolsPage />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: '/profile',
-  //   element: (
-  //     <ProtectedRoute>
-  //       <ProfilePage />
-  //     </ProtectedRoute>
-  //   ),
-  // },
   
   // ===================================================================
   // 404 NOT FOUND
